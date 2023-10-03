@@ -22,12 +22,16 @@ public class GalgjeWord {
     }
 
     //Checking where in the word the letter is and filling it in the display word
-    public String updateDisplayGalgjeWord() {
+    public char[] updateDisplayGalgjeWord() {
+        InputUser inputUser = new InputUser();
+        String chosenLetter = inputUser.getChosenLetter();
+        char charChosenLetter = chosenLetter.charAt(0);
         for (int i = 0; i < arrayWordToBeGuessed.length; i++) {
-            if (arrayWordToBeGuessed[i] == InputUser.getChosenLetter) {
-                displayGalgjeWord(wordToBeGuessed)[i] = InputUser.getChosenLetter;
+            if (arrayWordToBeGuessed[i] == charChosenLetter) {
+                displayGalgjeWord(wordToBeGuessed)[i] = chosenLetter;
             }
         }
+        return arrayWordToBeGuessed;
     }
 
 
