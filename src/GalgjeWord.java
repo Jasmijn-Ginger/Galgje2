@@ -1,7 +1,17 @@
+import java.util.Arrays;
+
 public class GalgjeWord {
 
-    private static final String wordToBeGuessed = createGalgjeword();
-    private static final char[] arrayWordToBeGuessed = wordToBeGuessed.toCharArray();
+    public final String wordToBeGuessed;
+    private final char[] arrayWordToBeGuessed;
+
+    public GalgjeWord(){
+        this(createGalgjeword());
+    }
+    public GalgjeWord(String wordToBeGuessed){
+        this.wordToBeGuessed = wordToBeGuessed;
+        arrayWordToBeGuessed =  wordToBeGuessed.toCharArray();
+    }
 
     //Creates the word that needs to be guessed
     public static String createGalgjeword() {
@@ -13,26 +23,34 @@ public class GalgjeWord {
 
 
     //Displaying word that needs to be guessed
-    public static String[] displayGalgjeWord(String word) {
-        String[] displayedWord = new String[word.length()];
-        for (int i = 0; i < word.length(); i++) {
-            displayedWord[i] = "_";
+    public char[] displayGalgjeWord() {
+        char[] displayedWord = new char[wordToBeGuessed.length()];
+        for (int i = 0; i < wordToBeGuessed.length(); i++) {
+            displayedWord[i] = '_';
         }
         return displayedWord;
     }
 
+
     //Checking where in the word the letter is and filling it in the display word
-    public char[] updateDisplayGalgjeWord() {
-        InputUser inputUser = new InputUser();
-        String chosenLetter = inputUser.getChosenLetter();
-        char charChosenLetter = chosenLetter.charAt(0);
-        for (int i = 0; i < arrayWordToBeGuessed.length; i++) {
-            if (arrayWordToBeGuessed[i] == charChosenLetter) {
-                displayGalgjeWord(wordToBeGuessed)[i] = chosenLetter;
+    public void updateDisplayGalgjeWord() {
+        char[] arrayDisplayGalgjeWord = displayGalgjeWord();
+        do {
+            InputUser inputUser = new InputUser();
+            char chosenLetter = inputUser.getChosenLetter().charAt(0);
+
+            for (int i = 0; i < arrayWordToBeGuessed.length; i++) {
+                if (arrayWordToBeGuessed[i] == chosenLetter) {
+                    arrayDisplayGalgjeWord[i] = chosenLetter;
+                }
             }
+
+            System.out.println(new String(arrayDisplayGalgjeWord));
         }
-        return arrayWordToBeGuessed;
+        while (Arrays.toString(arrayDisplayGalgjeWord).contains("_"));
+
     }
+
 
 
 

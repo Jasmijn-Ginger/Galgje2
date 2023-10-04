@@ -1,23 +1,28 @@
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
-        //create new galgjewoord
+        //makes and prints new Galgjeword
         GalgjeWord new_word = new GalgjeWord();
-        String wordToBeGuessed = GalgjeWord.createGalgjeword();
-        System.out.println(wordToBeGuessed);
+        String x = new_word.wordToBeGuessed;
+        System.out.println(x);
 
-        //display the word with empty spaces
-        String[] progressWordToBeGuessed = GalgjeWord.displayGalgjeWord(wordToBeGuessed);
-        System.out.println(String.join("", progressWordToBeGuessed));
 
-        //GetInput
-        InputUser new_input = new InputUser();
-        String letter = new_input.getChosenLetter();
-        System.out.println(letter);
 
         //Update galgjewoord with new letter
-        char[] updated_word = new_word.updateDisplayGalgjeWord();
-        System.out.println(updated_word);
+        new_word.updateDisplayGalgjeWord();
+
 
 
     }
+
+
+
+    //create new galgjewoord
+//    public String getWordToBeGuessed() {
+//        GalgjeWord new_word = new GalgjeWord();
+//        String wordToBeGuessed = GalgjeWord.createGalgjeword();
+//        return wordToBeGuessed;
+//    }
+
 }

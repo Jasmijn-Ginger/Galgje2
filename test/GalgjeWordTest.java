@@ -1,7 +1,4 @@
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.*;
 
 import java.util.Arrays;
 
@@ -11,16 +8,24 @@ public class GalgjeWordTest {
 
     public String wordToBeGuessed;
 
-    @BeforeAll
+    @BeforeEach
     public void setup(){
         wordToBeGuessed = "appeltjes";
     }
 
     @Test
     public void testDisplayGalgjeWord() {
-        String[] something = {"_", "_", "_", "_", "_", "_", "_", "_", "_"};
-        Assertions.assertArrayEquals(something, GalgjeWord.displayGalgjeWord(wordToBeGuessed));
+        //Given
+         char[] something = {'_', '_', '_', '_', '_', '_', '_', '_', '_'};
+         GalgjeWord someone = new GalgjeWord(wordToBeGuessed);
+        //When
+        char[] result = someone.displayGalgjeWord();
+        //Then
+        Assertions.assertArrayEquals(something, result);
     }
+
+//    @Test
+//    public void
 
 
 }
